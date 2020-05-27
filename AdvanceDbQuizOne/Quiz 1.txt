@@ -1,0 +1,48 @@
+50pts
+deadline: June 13, 2020
+
+Create a program based on the requirements below:
+
+Make the user choose a command to perform: INSERT, SELECT and MODIFY
+
+if the user selects INSERT then perform the logic below:
+
+ask the following inputs from the user below:
+-last name
+-first name
+-middle name
+-age
+
+Generate a fibonacci sequence using the user's age. If the length of the last name + middle name is present in the fibonacci sequence generated from the user's age. Check if the last number of the fibonacci sequence is even then insert the last name, first name, middle name and age using HIBERNATE. If the last number of the fibonacci sequence is odd then insert the last name, first name, middle name and age = (age / 4 * 3) using HIBERNATE. if the length of the last name + middle name doesn't exists from the fibonacci sequence, check if the length of the last name + middle name + first name is present in the fibonacci sequence then insert the reverse value of last name, first name, middle name and age using HIBERNATE. If the lenght of the last name + middle name + first name doesn't exists from the fibonacci sequence then insert the last name, first name and age using HIBERNATE.
+
+if the user selects SELECT then perform the logic below:
+
+ask the following inputs from the user below:
+-id
+-last name
+
+Use the details to fetch from the table using HIBERNATE and display all details of the fetched data/object in reverse value.
+
+if the user selects MODIFY then perform the logic below:
+
+ask the following inputs from the user below:
+-id
+-last name
+-first name
+-middle name
+-age
+
+Generate the fibonacci sequence using the user's age. Count the even and odd numbers from the fibonacci sequence. 
+If the count of even numbers are greater than 10 then update the necessary details from the fetched record using the id input from the user. 
+If the count of even numbers are not greater than or equal to 10 then delete the record from the specified id input from the user. 
+
+If the count of odd numbers are less than 10 then delete the record from the specified id input from the user. 
+If the count of odd numbers are greater than or equal to 10 then update the necessary details from the fetched record using the id input from the user.
+
+After processing, re-run the program.
+
+If I encounter any errors you will receive -10 in this quiz, so please submit all necessary files to execute your program smoothly.
+
+Once you're done with the quiz, upload all necessary files inside Quiz 1 Submission folder and create your own folder name with format [Last Name]_[First Name] e.g., Abarro_RicoSancho. Failure to follow instructions will receive -10 in this quiz.
+
+GOODLUCK! STAY SAFE!
