@@ -80,7 +80,7 @@ public class MainRun {
 
 		System.out.println(even + "");
 		System.out.println(odd + "");
-
+		
 		if(even >=10) {
 			Session session = dbutil.getSession();
 			Transaction tx = null;
@@ -90,7 +90,7 @@ public class MainRun {
 				String sql = "select * from details where userId = :userId";
 
 				Query query = session.createSQLQuery(sql);
-				System.out.println("Update condition EVEN");
+//				System.out.println("Update condition EVEN");
 				query.setParameter("userId",idmod);
 				query.setResultTransformer(Transformers.aliasToBean(Details.class));
 
@@ -113,6 +113,7 @@ public class MainRun {
 					tx.rollback();
 				}
 				System.out.println("NO EXISTING DATA FOUND");
+				choyses();
 				ex.printStackTrace();
 			} finally {
 				session.close();
@@ -131,7 +132,7 @@ public class MainRun {
 				query.setResultTransformer(Transformers.aliasToBean(Details.class));
 
 				Details INfoResult = (Details) query.uniqueResult();
-				System.out.println("Delete Successfully!");
+//				System.out.println("Delete Successfully!");
 
 				tx = session.beginTransaction();
 				session.delete(INfoResult);
@@ -146,6 +147,7 @@ public class MainRun {
 					tx.rollback();
 				}
 				System.out.println("NO Data FOUND TO BE DELETED");
+				choyses();
 				ex.printStackTrace();
 			} finally {
 				session.close();
@@ -167,8 +169,7 @@ public class MainRun {
 
 				Details INfoResult = (Details) query.uniqueResult();
 
-				System.out.println("Delete Successfully!");
-
+				
 				tx = session.beginTransaction();
 				session.delete(INfoResult);
 				// or
@@ -182,6 +183,7 @@ public class MainRun {
 					tx.rollback();
 				}
 				System.out.println("NO Data FOUND TO BE DELETED");
+				choyses();
 				ex.printStackTrace();
 			} finally {
 				session.close();
@@ -200,7 +202,7 @@ public class MainRun {
 				String sql = "select * from details where userId = :userId";
 
 				Query query = session.createSQLQuery(sql);
-				System.out.println("Update condition ODD");
+//				System.out.println("Update condition ODD");
 				query.setParameter("userId",idmod);
 				query.setResultTransformer(Transformers.aliasToBean(Details.class));
 
@@ -223,14 +225,14 @@ public class MainRun {
 					tx.rollback();
 				}
 				System.out.println("NO EXISTING DATA FOUND");
+				choyses();
 				ex.printStackTrace();
 			} finally {
 				session.close();
 			}		
-			choyses();
-
+		
 		}
-
+		
 	}
 	private static int[] fibSequence(int edadIns) {
 
@@ -325,10 +327,12 @@ public class MainRun {
 
 		} catch (Exception ex) {
 			System.out.println("NO EXISTING DATA FOUND");
+									
+			choyses();
 			ex.printStackTrace();
 		} finally {
 			session.close();
-		}		
+		}
 		choyses();
 
 	}
@@ -383,9 +387,13 @@ public class MainRun {
 				tx.commit();
 				System.out.println("Your Id " + id);
 			} catch (Exception ex) {
+				
 				if (tx != null) {
 					tx.rollback();
 				}
+				
+				System.out.println("fib out of bound");
+				choyses();
 				ex.printStackTrace();
 			} finally {
 				session.close();
@@ -425,7 +433,10 @@ public class MainRun {
 				if (tx != null) {
 					tx.rollback();
 				}
+				System.out.println("fib out of bound");
+				choyses();
 				ex.printStackTrace();
+				
 			} finally {
 				session.close();
 			}
